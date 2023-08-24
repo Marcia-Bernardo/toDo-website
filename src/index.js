@@ -3,11 +3,29 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Homepages from "./pages/Homepages";
 import reportWebVitals from "./reportWebVitals";
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NewTask from "./components/NewTask";
+import NavBar from "./components/structure/NavBar";
+import Tasks from "./components/Tasks";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Homepages />,
+  },
+  {
+    path: "/newtask",
+    element: <NewTask />,
+  },
+  {
+    path: "/tasks",
+    element: <Tasks />,
+  },
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Homepages />
+    <NavBar />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

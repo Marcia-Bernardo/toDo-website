@@ -8,8 +8,8 @@ const NavBar = () => {
         data-bs-theme="dark"
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
+          <a className="navbar-brand" href="/">
+            toDo
           </a>
           <button
             className="navbar-toggler"
@@ -24,22 +24,22 @@ const NavBar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+              {/* <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
-              </li>
+              </li> */}
               <li className="nav-item">
-                <a className="nav-link" href="/">
-                  Link
+                <a className="nav-link" href="/tasks">
+                  Task
                 </a>
               </li>
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link disabled" aria-disabled="true">
                   Disabled
                 </a>
-              </li>
+              </li> */}
             </ul>
             <form className="d-flex" role="search">
               <input

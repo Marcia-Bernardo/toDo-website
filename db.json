@@ -1,0 +1,19 @@
+{
+  "tasks": [
+    {
+      "id":"0",
+      "task":"List market",
+      "name":"Bread",
+      "date":"25/08/2023",
+      "state":"active"
+
+    },
+    {
+      "id":"1",
+      "task":"Daily activity",
+      "name":"School reunion",
+      "date":"25/08/2023",
+      "state":"active"
+    }
+  ]
+}
