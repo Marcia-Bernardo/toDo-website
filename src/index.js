@@ -4,29 +4,46 @@ import "./index.css";
 import Homepages from "./pages/Homepages";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import NewTask from "./components/NewTask";
+
 import NavBar from "./components/structure/NavBar";
 import Tasks from "./components/Tasks";
+
+import Taskspage from "./pages/Taskspage";
+import NavbarWrapper from "./components/structure/NavbarWrapper";
+import { GlobalProvider } from "./store/GlobalStore";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Homepages />,
-  },
-  {
-    path: "/newtask",
-    element: <NewTask />,
-  },
-  {
-    path: "/tasks",
-    element: <Tasks />,
+    element: <NavbarWrapper />,
+    children: [
+      {
+        index: true,
+        element: <Homepages />,
+      },
+      {
+        path: "/newtask",
+        element: <Taskspage componentName="create" />,
+      },
+      {
+        path: "/listtasks",
+        element: <Taskspage componentName="list" />,
+      },
+      {
+        path: "/tasks",
+        element: <Tasks />,
+      },
+    ],
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <NavBar />
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <GlobalProvider>
+    <React.StrictMode>
+      <RouterProvider router={router}>
+        <NavBar />
+      </RouterProvider>
+    </React.StrictMode>
+  </GlobalProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

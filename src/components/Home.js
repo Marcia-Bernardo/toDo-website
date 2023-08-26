@@ -12,7 +12,7 @@ const Home = () => {
           Welcome to the website to create tasks <span>toDo</span>!
         </h1>
         <p>Start managing your tasks right now!</p>
-        {/* <a href="/newproject">Criar projeto</a>*/}
+
         <br />
         <Link to="/newtask">Create task</Link>
         <br />
