@@ -1,19 +1,15 @@
 import React from "react";
 import "./NewTask.module.css";
 import { useState } from "react";
+import { useGlobalContext } from "../store/GlobalStore";
 
 const NewTask = () => {
-  const [tasks, setTasks] = useState([]);
   const [name, setName] = useState({});
-
+  const { auth, dispatch } = useGlobalContext();
   function registerTask(e) {
     e.preventDefault();
-    const task = { name: name, status: "not done" };
-    console.log(e.target);
-    const allTasks = tasks;
-    allTasks.push(task);
-    setTasks(allTasks);
-    console.log(tasks);
+
+    dispatch({ name, type: "addTask" });
   }
 
   return (
@@ -38,6 +34,13 @@ const NewTask = () => {
             <input type="submit" value="Register" />
           </div>
         </form>
+
+        <ul>
+          {auth.tasks &&
+            auth.tasks.map((task, index) => {
+              return <li key={index}>{task.name}</li>;
+            })}
+        </ul>
       </div>
     </>
   );
