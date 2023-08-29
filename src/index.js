@@ -8,9 +8,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NavBar from "./components/structure/NavBar";
 import Tasks from "./components/Tasks";
 
-import Taskspage from "./pages/Taskspage";
 import NavbarWrapper from "./components/structure/NavbarWrapper";
 import { GlobalProvider } from "./store/GlobalStore";
+import NewTask from "./components/NewTask";
+import ListTasks from "./components/ListTasks";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,11 +23,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/newtask",
-        element: <Taskspage componentName="create" />,
+        element: <NewTask componentName="create" />,
       },
       {
         path: "/listtasks",
-        element: <Taskspage componentName="list" />,
+        element: <ListTasks componentName="list" />,
       },
       {
         path: "/tasks",

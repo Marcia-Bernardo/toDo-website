@@ -1,11 +1,14 @@
 import React from "react";
 import { useGlobalContext } from "../store/GlobalStore";
+import Tasks from "./Tasks";
 
 const ListTasks = () => {
-  const { auth } = useGlobalContext();
-  const listTasks = auth.tasks.map((task, index) => {
-    return <li key={index}>{task.name}</li>;
+  const { globalState } = useGlobalContext();
+
+  const listTasks = globalState.groups.map((group) => {
+    return <Tasks group={group} />;
   });
+
   return (
     <>
       <div>
