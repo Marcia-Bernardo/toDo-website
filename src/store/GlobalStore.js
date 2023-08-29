@@ -4,17 +4,19 @@ export const GlobalContext = createContext();
 
 // Initial state
 const initialState = {
-  tasks: [],
+  groups: [],
 };
 
 // Reducer
 export function authReducer(state, action) {
   switch (action.type) {
-    case "addTask":
-      const task = { name: action.name, status: "not done" };
-      const allTasks = [...state.tasks];
-      allTasks.push(task);
-      state.tasks = allTasks;
+    case "addGroup":
+      const group = {
+        [action.groupName]: action.listTasks 
+      };
+      const allGroup = [...state.groups];
+      allGroup.push(group);
+      state.groups = allGroup;
       return state;
 
     default:
@@ -23,9 +25,9 @@ export function authReducer(state, action) {
 }
 
 function GlobalProvider(props) {
-  const [auth, dispatch] = useReducer(authReducer, initialState);
+  const [globalState, dispatch] = useReducer(authReducer, initialState);
 
-  const authData = { auth, dispatch };
+  const authData = { globalState, dispatch };
 
   return <GlobalContext.Provider value={authData} {...props} />;
 }

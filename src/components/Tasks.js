@@ -1,26 +1,36 @@
 import React from "react";
 import "./Tasks.module.css";
+import { Link } from "react-router-dom";
 
-const Tasks = () => {
-  return (
-    <>
-      <section>
-        <div className="row">
-          <div className="col-sm-4">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title center">List tasks</h5>
-                <p className="card-text">Name list</p>
-                <a href="/listtasks" className="btn btn-primary">
-                  List
-                </a>
-              </div>
+const Tasks = ({ group }) => {
+  return Object.keys(group).map((key, index) => {
+    const taskList = group[key].map((task) => {
+      return (
+        <>
+          <p className="card-text">{task.name}</p>
+        </>
+      );
+    });
+
+    return (
+      <>
+        <div className="col" key={index}>
+          <div className="card mt-4 " style={{ width: "18rem" }}>
+            <div className="card-header">
+              <h4>{key}</h4>
+            </div>
+            <div className="card-body">
+              {taskList}
+              <Link to="/details" className="btn btn-primary">
+                Details
+              </Link>
+              <button className="btn btn-danger ms-3">Delete</button>
             </div>
           </div>
         </div>
-      </section>
-    </>
-  );
+      </>
+    );
+  });
 };
 
 export default Tasks;
