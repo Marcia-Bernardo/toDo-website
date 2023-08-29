@@ -12,6 +12,9 @@ import NavbarWrapper from "./components/structure/NavbarWrapper";
 import { GlobalProvider } from "./store/GlobalStore";
 import NewTask from "./components/NewTask";
 import ListTasks from "./components/ListTasks";
+import TodoDetails from "./components/TodoDetails";
+import CreateTodo from "./pages/CreateTodo";
+import ListTodo from "./pages/ListTodo";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,16 +26,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/newtask",
-        element: <NewTask componentName="create" />,
+        element: <CreateTodo/>,
       },
       {
         path: "/listtasks",
-        element: <ListTasks componentName="list" />,
+        element: <ListTodo/>,
       },
       {
-        path: "/tasks",
-        element: <Tasks />,
-      },
+        path:"/details",
+        element:<TodoDetails/>
+      }
     ],
   },
 ]);

@@ -5,14 +5,15 @@ import Tasks from "./Tasks";
 const ListTasks = () => {
   const { globalState } = useGlobalContext();
 
-  const listTasks = globalState.groups.map((group) => {
-    return <Tasks group={group} />;
-  });
-
   return (
     <>
-      <div>
-        <ul>{listTasks}</ul>
+      <div className="container">
+        <h1>List tasks to do </h1>
+        <div className="row row-cols-auto">
+          {globalState.groups.map((group) => {
+            return <Tasks group={group} />;
+          })}
+        </div>
       </div>
     </>
   );

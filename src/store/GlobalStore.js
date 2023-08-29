@@ -10,13 +10,13 @@ const initialState = {
 // Reducer
 export function authReducer(state, action) {
   switch (action.type) {
-    case "addTask":
+    case "addGroup":
       const group = {
-        [action.listName]: [{ name: action.name, status: "not done" }],
+        [action.groupName]: action.listTasks 
       };
-      const allTasks = [...state.groups];
-      allTasks.push(group);
-      state.groups = allTasks;
+      const allGroup = [...state.groups];
+      allGroup.push(group);
+      state.groups = allGroup;
       return state;
 
     default:

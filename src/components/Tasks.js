@@ -1,33 +1,33 @@
 import React from "react";
 import "./Tasks.module.css";
+import { Link } from "react-router-dom";
 
 const Tasks = ({ group }) => {
-  Object.keys(group).map((tasks, index) => {
-    const listTasks = group[tasks].map((task) => {
+  return Object.keys(group).map((key, index) => {
+    const taskList = group[key].map((task) => {
       return (
         <>
-          <li key={index}>
-            {task.name}
-            {task.status === "not done" && (
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-                <label class="form-check-label" for="flexCheckDefault"></label>
-              </div>
-            )}
-          </li>
+          <p className="card-text">{task.name}</p>
         </>
       );
     });
-    console.log(listTasks);
+
     return (
       <>
-        <h1>{tasks}</h1>
-        {listTasks}
+        <div className="col" key={index}>
+          <div className="card mt-4 " style={{ width: "18rem" }}>
+            <div className="card-header">
+              <h4>{key}</h4>
+            </div>
+            <div className="card-body">
+              {taskList}
+              <Link to="/details" className="btn btn-primary">
+                Details
+              </Link>
+              <button className="btn btn-danger ms-3">Delete</button>
+            </div>
+          </div>
+        </div>
       </>
     );
   });
