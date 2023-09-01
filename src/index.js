@@ -15,6 +15,7 @@ import ListTasks from "./components/ListTasks";
 import TodoDetails from "./components/TodoDetails";
 import CreateTodo from "./pages/CreateTodo";
 import ListTodo from "./pages/ListTodo";
+import ListDetails from "./pages/ListDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,16 +27,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/newtask",
-        element: <CreateTodo/>,
+        element: <CreateTodo />,
       },
       {
         path: "/listtasks",
-        element: <ListTodo/>,
+        element: <ListTodo />,
       },
       {
-        path:"/details",
-        element:<TodoDetails/>
-      }
+        path: "/details/:id",
+        element: <ListDetails />,
+      },
     ],
   },
 ]);

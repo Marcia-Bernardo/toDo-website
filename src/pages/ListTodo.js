@@ -1,12 +1,12 @@
-import React from 'react';
-import ListTasks from '../components/ListTasks';
+import React from "react";
+import ListTasks from "../components/ListTasks";
 
 const ListTodo = () => {
   return (
     <div>
-      <ListTasks/>
+      <ListTasks />
     </div>
   );
-}
+};
 
 export default ListTodo;

@@ -11,7 +11,7 @@ const ListTasks = () => {
         <h1>List tasks to do </h1>
         <div className="row row-cols-auto">
           {globalState.groups.map((group) => {
-            return <Tasks group={group} />;
+            return <Tasks group={group} key={group.id} />;
           })}
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import "./NewTask.module.css";
 import { useState } from "react";
 import { useGlobalContext } from "../store/GlobalStore";
+import { computeHeadingLevel } from "@testing-library/react";
 
 const NewTask = () => {
   const [name, setName] = useState("");
@@ -21,7 +22,7 @@ const NewTask = () => {
   };
 
   function registerTask() {
-    if (groupName === "" && listTasks === "") {
+    if (groupName === "" || listTasks === "") {
       return;
     }
     dispatch({ groupName, listTasks, type: "addGroup" });
